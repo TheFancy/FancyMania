@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/images/faviconcat.png" type="image/png">
+    <title>Graaaah!</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .background {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+            pointer-events: none;
+            z-index: -1;
+            filter: grayscale(100%);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            gap: 20px;
+            justify-content: center;
+            align-content: flex-start;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .grid-item {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .grid-item:hover {
+            filter: grayscale(0%);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .grid-item:hover img {
+            transform: scale(0.9);
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        .image-container img {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .text {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-top: 50px;
+            font-size: 18px;
+            color: #ffffff;
+            text-align: center;
+            filter: grayscale(100%);
+        }
+
+        .text-small {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #ffffff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="https://github.com/TheFancy" target="_blank">
+                <img src="assets/images/github.png" alt="GitHub">
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="https://discord.com" target="_blank">
+                <img src="assets/images/discord.png" alt="Discord">
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="https://osu.ppy.sh/users/1969051" target="_blank">
+                <img src="assets/images/osu.png" alt="Osu">
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="https://steamcommunity.com/id/TheFancy/" target="_blank">
+                <img src="assets/images/steam.png" alt="Osu">
+            </a>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="assets/images/pfpgif.gif" alt="Centered Image">
+    </div>
+    <div class="text">F A N C Y M A N I A</div>
+    <div class="text-small">
+        <div id="quote-container"></div>
+    </div>
+    <div class="text-small">
+        <p>- Fancy </p>
+        <p>- 27</p>
+        <p>- He/Him</p>
+        <p>- Quadruple Pisces</p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const folderPath = "assets/backgrounds/"; // Path to the folder containing .png images
+            const imageCount = 3; // Total number of .png images in the folder
+
+            const randomIndex = Math.floor(Math.random() * imageCount) + 1;
+            const randomImage = `${folderPath}background${randomIndex}.png`;
+
+            const targetDiv = document.querySelector(".background");
+
+            if (targetDiv) {
+                targetDiv.style.backgroundImage = `url('${randomImage}')`;
+                targetDiv.style.backgroundSize = "cover";
+                targetDiv.style.backgroundPosition = "center";
+            } else {
+                console.error("Target div not found!");
+            }
+
+            console.log(`Background image set to: ${randomImage}`);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                // Fetch the quotes.txt file
+                const response = await fetch('assets/quotes.txt');
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch quotes.txt');
+                }
+
+                // Read the file content
+                const quotesText = await response.text();
+
+                // Split the content into an array of quotes, assuming each quote is on a new line
+                const quotes = quotesText.split('\n').filter(quote => quote.trim() !== '');
+
+                // Pick a random quote
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+                // Find the target div by its ID and insert the random quote
+                const quoteDiv = document.getElementById('quote-container');
+
+                if (quoteDiv) {
+                    quoteDiv.textContent = randomQuote;
+                } else {
+                    console.error('No element with ID "quote-container" found.');
+                }
+            } catch (error) {
+                console.error('Error fetching or processing quotes:', error);
+            }
+        });
+</script>
+</body>
+</html>
