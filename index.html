@@ -135,6 +135,11 @@
         <p>- Quadruple Pisces</p>
     </div>
     <script>
+      if (window.location.hostname === "mysweetgirl.fancymania.me") {
+        window.location.href = "/mysweetgirl.html";
+      }
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
             const folderPath = "assets/backgrounds/"; // Path to the folder containing .png images
             const imageCount = 3; // Total number of .png images in the folder
@@ -186,6 +191,6 @@
                 console.error('Error fetching or processing quotes:', error);
             }
         });
-</script>
+    </script>
 </body>
 </html>
