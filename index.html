@@ -222,16 +222,27 @@
     const Webamp = window.Webamp;
 
     const webamp = new Webamp({
-      initialTracks: [
+
+        initialSkin: {
+            url: "assets/skins/illumina.wsz"
+        },
+        availableSkins: [
+            { url: "assets/skins/C10k2_-_Carbo_KAI.wsz", name: "carbo kai" },
+            { url: "assets/skins/C10k2_-_FINK_KAI_.wsz", name: "fink kai" },
+            { url: "assets/skins/illumina.wsz", name: "illumina" },
+            { url: "assets/skins/noncompliance_by_firelight-d9s.wsz", name: "noncompliance" },
+            { url: "assets/skins/retroteknic2061.wsz", name: "retroteknik" },
+        ],
+        initialTracks: [
         {
           metaData: {
             artist: "Slowerpace 音楽",
             title: "Lost in space 宇宙の冒険.mp3"
           },
-          url: "assets/music/Slowerpace.mp3",
-          duration: 180 // duration in seconds (optional)
+            url: "assets/music/Slowerpace.mp3",
+            duration: 180 // duration in seconds (optional)
         }
-      ]
+        ]
     });
 
     // Render when ready
