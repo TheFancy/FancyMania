@@ -212,6 +212,31 @@
         <p>- He/Him</p>
         <p>- Quadruple Pisces</p>
     </div>
+    <!-- Webamp container -->
+    <div id="webamp"></div>
+
+    <!-- Load Webamp from CDN -->
+    <script src="https://unpkg.com/webamp@1.5.0/built/webamp.bundle.min.js"></script>
+
+    <script>
+    const Webamp = window.Webamp;
+
+    const webamp = new Webamp({
+      initialTracks: [
+        {
+          metaData: {
+            artist: "Slowerpace 音楽",
+            title: "Lost in space 宇宙の冒険.mp3"
+          },
+          url: "assets/music/Slowerpace.mp3",
+          duration: 180 // duration in seconds (optional)
+        }
+      ]
+    });
+
+    // Render when ready
+    webamp.renderWhenReady(document.getElementById('webamp'));
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const folderPath = "assets/backgrounds/"; // Path to the folder containing .png images
