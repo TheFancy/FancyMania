@@ -4,181 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="main.css">
     <title>Graaaah!</title>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
-        .background {
-            height: 100%;
-            width: 100%;
+        /* ENTER OVERLAY */
+        #enter-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #f0f0f0;
-            background-size: cover;
-            background-position: center;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            transition: opacity 0.6s ease;
+        }
+
+        #enter-overlay.hidden {
+            opacity: 0;
             pointer-events: none;
-            z-index: -1;
-            filter: grayscale(100%);
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 50px);
-            gap: 20px;
-            justify-content: center;
-            align-content: flex-start;
-            padding: 20px;
-            z-index: 2;
+        /* Hide main content until entered */
+        #main-content {
+            opacity: 0;
+            transition: opacity 0.6s ease;
         }
 
-        .grid-item {
-            width: 50px;
-            height: 50px;
-            border-radius: 4px;
+        #main-content.visible {
+            opacity: 1;
+        }
+
+        #enter-main {
+        }
+
+        #enter-main:hover {
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1;}
+            50%       { opacity: 0.5;}
+        }
+
+        .enter-main:hover {
+            animation: pulse 1s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        #danmaku-container {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            pointer-events: none;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
         }
 
-        .grid-item:hover {
-            filter: grayscale(0%);
-        }
-
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .grid-item:hover img {
-            transform: scale(0.9);
-        }
-
-        .bottom-grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 50px);
-            gap: 20px;
-            justify-content: center;
-            align-content: flex-start;
-            padding: 20px;
-            z-index: 2;
-        }
-
-        .bottom-grid-container .grid-item {
-            width: 50px;
-            height: 50px;
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .bottom-grid-container .grid-item:hover {
-            filter: grayscale(0%);
-        }
-
-        .bottom-grid-container .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .bottom-grid-container .grid-item:hover img {
-            transform: scale(0.9);
-        }
-
-        .bottom-button-container {
-            display: grid;
-            grid-template-columns: repeat(1, 50px);
-            gap: 20px;
-            justify-content: center;
-            align-content: flex-end;
-            padding: 20px;
+        .danmaku-text {
             position: absolute;
-            bottom: 20px; /* Adjust this value to move it up/down */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        .bottom-button-container .grid-item {
-            width: 50px;
-            height: 50px;
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .bottom-button-container .grid-item:hover {
-            filter: grayscale(0%);
-        }
-
-        .bottom-button-container .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .bottom-button-container .grid-item:hover img {
-            transform: scale(0.9);
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 100px;
-        }
-
-        .image-container img {
-            width: 175px;
-            height: 175px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #000000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .text {
+            white-space: nowrap;
+            animation: danmaku-scroll linear forwards;
             font-family: 'Courier New', monospace;
             font-weight: bold;
-            margin-top: 50px;
             font-size: 18px;
-            color: #ffffff;
-            text-align: center;
-            filter: grayscale(100%);
+            letter-spacing: normal;
+            color: white;
+            margin: 0 !important;
         }
 
-        .text-small {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            margin-top: 20px;
-            font-size: 12px;
-            color: #ffffff;
-            text-align: center;
+        @keyframes danmaku-scroll {
+            from { transform: translateX(100vw); }
+            to   { transform: translateX(-100%); }
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
+<div id="danmaku-container"></div>
 
+<div class="background"></div>
+
+<!-- ENTER OVERLAY -->
+<div id="enter-overlay">
+    <div id="enter-main" class="text enter-main">F A N C Y M A N I A</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
     <div class="grid-container">
         <div class="grid-item">
             <a href="https://github.com/TheFancy" target="_blank">
@@ -186,7 +96,7 @@
             </a>
         </div>
         <div class="grid-item">
-                <img src="assets/images/discord.png" alt="Discord">
+            <img src="assets/images/discord.png" alt="Discord">
         </div>
         <div class="grid-item">
             <a href="https://osu.ppy.sh/users/1969051" target="_blank">
@@ -212,94 +122,64 @@
         <p>- He/Him</p>
         <p>- Quadruple Pisces</p>
     </div>
-    <!-- Webamp container -->
-    <div id="webamp"></div>
+</div>
 
-    <!-- Load Webamp from CDN -->
-    <script src="https://unpkg.com/webamp@1.5.0/built/webamp.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Danmaku logic
 
-    <script>
-    const Webamp = window.Webamp;
+        const messages = [
+            "F A N C Y M A N I A",
+        ];
 
-    const webamp = new Webamp({
+        function spawnDanmaku() {
+            const container = document.getElementById("danmaku-container");
+            const el = document.createElement("div");
+            el.classList.add("danmaku-text", "text");
 
-        initialSkin: {
-            url: "assets/skins/illumina.wsz"
-        },
-        availableSkins: [
-            { url: "assets/skins/C10k2_-_Carbo_KAI.wsz", name: "carbo kai" },
-            { url: "assets/skins/C10k2_-_FINK_KAI_.wsz", name: "fink kai" },
-            { url: "assets/skins/illumina.wsz", name: "illumina" },
-            { url: "assets/skins/noncompliance_by_firelight-d9s.wsz", name: "noncompliance" },
-            { url: "assets/skins/retroteknic2061.wsz", name: "retroteknik" },
-        ],
-        initialTracks: [
-        {
-          metaData: {
-            artist: "Slowerpace 音楽",
-            title: "Lost in space 宇宙の冒険.mp3"
-          },
-            url: "assets/music/Slowerpace.mp3",
-            duration: 180 // duration in seconds (optional)
+            // pick random message, lane, speed, size
+            el.textContent = messages[Math.floor(Math.random() * messages.length)];
+            el.style.top = Math.random() * 90 + "vh";
+            el.style.opacity = 0.2 + Math.random() * 0.4;
+            const duration = 6 + Math.random() * 6;
+            el.style.animationDuration = duration + "s";
+
+            container.appendChild(el);
+            setTimeout(() => el.remove(), duration * 1000);
         }
-        ]
+
+        const danmakuInterval = setInterval(spawnDanmaku, 50);
+
+        // Background logic
+        const folderPath = "assets/backgrounds/";
+        const imageCount = 3;
+        const randomIndex = Math.floor(Math.random() * imageCount) + 1;
+        const randomImage = `${folderPath}background${randomIndex}.png`;
+        const targetDiv = document.querySelector(".background");
+        if (targetDiv) {
+            targetDiv.style.backgroundImage = `url('${randomImage}')`;
+            targetDiv.style.backgroundSize = "cover";
+            targetDiv.style.backgroundPosition = "center";
+        }
+
+        // Enter button logic
+        document.getElementById("enter-main").addEventListener("click", function () {
+            const overlay = document.getElementById("enter-overlay");
+            const main = document.getElementById("main-content");
+            const danmaku = document.getElementById("danmaku-container");
+
+            overlay.classList.add("hidden");
+            danmaku.classList.add("hidden");
+            clearInterval(danmakuInterval);
+
+            setTimeout(() => {
+                overlay.style.display = "none";
+                danmaku.style.display = "none";
+                main.classList.add("visible");
+            }, 600);
+        });
     });
+</script>
 
-    // Render when ready
-    webamp.renderWhenReady(document.getElementById('webamp'));
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const folderPath = "assets/backgrounds/"; // Path to the folder containing .png images
-            const imageCount = 3; // Total number of .png images in the folder
-
-            const randomIndex = Math.floor(Math.random() * imageCount) + 1;
-            const randomImage = `${folderPath}background${randomIndex}.png`;
-
-            const targetDiv = document.querySelector(".background");
-
-            if (targetDiv) {
-                targetDiv.style.backgroundImage = `url('${randomImage}')`;
-                targetDiv.style.backgroundSize = "cover";
-                targetDiv.style.backgroundPosition = "center";
-            } else {
-                console.error("Target div not found!");
-            }
-
-            console.log(`Background image set to: ${randomImage}`);
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
-            try {
-                // Fetch the quotes.txt file
-                const response = await fetch('assets/quotes.txt');
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch quotes.txt');
-                }
-
-                // Read the file content
-                const quotesText = await response.text();
-
-                // Split the content into an array of quotes, assuming each quote is on a new line
-                const quotes = quotesText.split('\n').filter(quote => quote.trim() !== '');
-
-                // Pick a random quote
-                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
-                // Find the target div by its ID and insert the random quote
-                const quoteDiv = document.getElementById('quote-container');
-
-                if (quoteDiv) {
-                    quoteDiv.textContent = randomQuote;
-                } else {
-                    console.error('No element with ID "quote-container" found.');
-                }
-            } catch (error) {
-                console.error('Error fetching or processing quotes:', error);
-            }
-        });
-    </script>
 </body>
 </html>
