@@ -75,6 +75,25 @@
             from { transform: translateX(100vw); }
             to   { transform: translateX(-100%); }
         }
+
+        #network-icon {
+            position: fixed;
+            top: 55%;
+            left: 25%;
+            z-index: 10;
+        }
+
+        #network-icon img {
+            width: 64px;
+            height: auto;
+            filter: grayscale(100%) opacity(0.5);
+            transition: filter 0.3s ease;
+            cursor: pointer;
+        }
+
+        #network-icon img:hover {
+            filter: grayscale(0%) opacity(1);
+        }
     </style>
 </head>
 <body>
@@ -122,35 +141,21 @@
         <p>- He/Him</p>
         <p>- Quadruple Pisces</p>
     </div>
+    <!-- NETWORK ICON -->
+    <a href="https://lab.fancymania.me" target="_blank" id="network-icon">
+        <img src="assets/images/network.png" alt="Network">
+    </a>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Danmaku logic
+        const hasEntered = sessionStorage.getItem("fancymania-entered");
 
-        const messages = [
-            "F A N C Y M A N I A",
-        ];
+        const overlay = document.getElementById("enter-overlay");
+        const main = document.getElementById("main-content");
+        const danmaku = document.getElementById("danmaku-container");
 
-        function spawnDanmaku() {
-            const container = document.getElementById("danmaku-container");
-            const el = document.createElement("div");
-            el.classList.add("danmaku-text", "text");
-
-            // pick random message, lane, speed, size
-            el.textContent = messages[Math.floor(Math.random() * messages.length)];
-            el.style.top = Math.random() * 90 + "vh";
-            el.style.opacity = 0.2 + Math.random() * 0.4;
-            const duration = 6 + Math.random() * 6;
-            el.style.animationDuration = duration + "s";
-
-            container.appendChild(el);
-            setTimeout(() => el.remove(), duration * 1000);
-        }
-
-        const danmakuInterval = setInterval(spawnDanmaku, 50);
-
-        // Background logic
+        // Background logic (runs either way)
         const folderPath = "assets/backgrounds/";
         const imageCount = 3;
         const randomIndex = Math.floor(Math.random() * imageCount) + 1;
@@ -162,11 +167,34 @@
             targetDiv.style.backgroundPosition = "center";
         }
 
-        // Enter button logic
+        // Skip the intro entirely on return visits
+        if (hasEntered) {
+            overlay.style.display = "none";
+            danmaku.style.display = "none";
+            main.classList.add("visible");
+            return;
+        }
+
+        // First-visit path: danmaku + overlay
+        const messages = ["F A N C Y M A N I A"];
+
+        function spawnDanmaku() {
+            const container = document.getElementById("danmaku-container");
+            const el = document.createElement("div");
+            el.classList.add("danmaku-text", "text");
+            el.textContent = messages[Math.floor(Math.random() * messages.length)];
+            el.style.top = Math.random() * 90 + "vh";
+            el.style.opacity = 0.2 + Math.random() * 0.4;
+            const duration = 6 + Math.random() * 6;
+            el.style.animationDuration = duration + "s";
+            container.appendChild(el);
+            setTimeout(() => el.remove(), duration * 1000);
+        }
+
+        const danmakuInterval = setInterval(spawnDanmaku, 50);
+
         document.getElementById("enter-main").addEventListener("click", function () {
-            const overlay = document.getElementById("enter-overlay");
-            const main = document.getElementById("main-content");
-            const danmaku = document.getElementById("danmaku-container");
+            sessionStorage.setItem("fancymania-entered", "true");
 
             overlay.classList.add("hidden");
             danmaku.classList.add("hidden");
