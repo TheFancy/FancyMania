@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8c2d9147-a19c-405c-ba07-c89e89ea38ff" name="Changes" comment="removed webamp&#10;updated danmaku">
+      <change afterPath="$PROJECT_DIR$/assets/images/network.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/backgrounds/background3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hippiebus.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TheFancy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TheFancy/FancyMania.git&quot;,
+    &quot;accountId&quot;: &quot;4aa8b6a9-c8c0-4182-b07a-f0c14fea92c9&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2uxy1X16mbldmAfEprKOw1RpFVv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.florabraincell.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alihan/PycharmProjects/FancyMania&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="FancyMania" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="FancyMania" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alihan\PycharmProjects\FancyMania\assets\music" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alihan\PycharmProjects\FancyMania\assets\images" />
+      <recent name="C:\Users\Alihan\PycharmProjects\FancyMania" />
+      <recent name="C:\Users\Alihan\PycharmProjects\FancyMania\assets\skins" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c2d9147-a19c-405c-ba07-c89e89ea38ff" name="Changes" comment="" />
+      <created>1743204304712</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743204304712</updated>
+      <workItem from="1743204305747" duration="1568000" />
+      <workItem from="1743284500547" duration="2634000" />
+      <workItem from="1743382434205" duration="45000" />
+      <workItem from="1743549671815" duration="3897000" />
+      <workItem from="1743790478444" duration="3743000" />
+      <workItem from="1744306913573" duration="112000" />
+      <workItem from="1744391480103" duration="9000" />
+      <workItem from="1745702596901" duration="2000" />
+      <workItem from="1745810409161" duration="2000" />
+      <workItem from="1768623835924" duration="1702000" />
+      <workItem from="1768672258116" duration="756000" />
+      <workItem from="1768700557778" duration="17000" />
+      <workItem from="1770508695575" duration="1749000" />
+      <workItem from="1770767254614" duration="398000" />
+      <workItem from="1771215098020" duration="3512000" />
+      <workItem from="1771272886404" duration="943000" />
+      <workItem from="1771466316126" duration="823000" />
+      <workItem from="1771700199740" duration="7000" />
+      <workItem from="1771790184150" duration="1499000" />
+      <workItem from="1771870554969" duration="3000" />
+      <workItem from="1772925779230" duration="3000" />
+      <workItem from="1772925789652" duration="2779000" />
+      <workItem from="1773323089635" duration="610000" />
+      <workItem from="1773505518595" duration="47000" />
+      <workItem from="1775439575622" duration="598000" />
+      <workItem from="1778592434230" duration="970000" />
+      <workItem from="1779039567014" duration="615000" />
+      <workItem from="1779064505278" duration="1503000" />
+      <workItem from="1779155939906" duration="8000" />
+      <workItem from="1779156164098" duration="1893000" />
+      <workItem from="1780886417771" duration="72000" />
+      <workItem from="1780889662036" duration="487000" />
+      <workItem from="1780890248281" duration="1743000" />
+    </task>
+    <task id="LOCAL-00001" summary="pruned">
+      <option name="closed" value="true" />
+      <created>1743204335275</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743204335275</updated>
+    </task>
+    <task id="LOCAL-00002" summary="pruned">
+      <option name="closed" value="true" />
+      <created>1770509669864</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770509669864</updated>
+    </task>
+    <task id="LOCAL-00003" summary="pruned">
+      <option name="closed" value="true" />
+      <created>1771215671542</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771215671542</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added webamp">
+      <option name="closed" value="true" />
+      <created>1771218592539</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771218592539</updated>
+    </task>
+    <task id="LOCAL-00005" summary="removed webamp&#10;updated danmaku">
+      <option name="closed" value="true" />
+      <created>1778592782972</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1778592782972</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pruned" />
+    <MESSAGE value="added webamp" />
+    <MESSAGE value="removed webamp&#10;updated danmaku" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed webamp&#10;updated danmaku" />
+  </component>
+</project>

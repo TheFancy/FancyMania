@@ -1,0 +1,88 @@
+    <div class="bottom-grid-container">
+        <div class="grid-item">
+            <a href="https://fancymania.me/hippiebus.html" target="_blank">
+                <img src="assets/images/bus.png" alt="bus">
+            </a>
+        </div>
+         <div class="grid-item">
+            <a href="https://nukochannel.neocities.org" target="_blank"><img src="https://nukochannel.neocities.org/NukoChannelButton.gif"></a>
+        </div>
+    </div>
+
+
+
+    cool notes
+
+        <!-- Webamp container -->
+        <div id="webamp"></div>
+
+        <!-- Load Webamp from CDN -->
+        <script src="https://unpkg.com/webamp@1.5.0/built/webamp.bundle.min.js"></script>
+
+        <script>
+        const Webamp = window.Webamp;
+
+        const webamp = new Webamp({
+
+            initialSkin: {
+                url: "assets/skins/illumina.wsz"
+            },
+            availableSkins: [
+                { url: "assets/skins/C10k2_-_Carbo_KAI.wsz", name: "carbo kai" },
+                { url: "assets/skins/C10k2_-_FINK_KAI_.wsz", name: "fink kai" },
+                { url: "assets/skins/illumina.wsz", name: "illumina" },
+                { url: "assets/skins/noncompliance_by_firelight-d9s.wsz", name: "noncompliance" },
+                { url: "assets/skins/retroteknic2061.wsz", name: "retroteknik" },
+            ],
+            initialTracks: [
+            {
+              metaData: {
+                artist: "Slowerpace 音楽",
+                title: "Lost in space 宇宙の冒険.mp3"
+              },
+                url: "assets/music/Slowerpace.mp3",
+                duration: 180 // duration in seconds (optional)
+            }
+            ]
+        });
+
+        // Render when ready
+        webamp.renderWhenReady(document.getElementById('webamp'));
+        </script>
+
+
+
+        webamp
+
+         <script>
+                document.addEventListener("DOMContentLoaded", async () => {
+                    try {
+                        // Fetch the quotes.txt file
+                        const response = await fetch('assets/quotes.txt');
+
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch quotes.txt');
+                        }
+
+                        // Read the file content
+                        const quotesText = await response.text();
+
+                        // Split the content into an array of quotes, assuming each quote is on a new line
+                        const quotes = quotesText.split('\n').filter(quote => quote.trim() !== '');
+
+                        // Pick a random quote
+                        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+                        // Find the target div by its ID and insert the random quote
+                        const quoteDiv = document.getElementById('quote-container');
+
+                        if (quoteDiv) {
+                            quoteDiv.textContent = randomQuote;
+                        } else {
+                            console.error('No element with ID "quote-container" found.');
+                        }
+                    } catch (error) {
+                        console.error('Error fetching or processing quotes:', error);
+                    }
+                });
+            </script>
